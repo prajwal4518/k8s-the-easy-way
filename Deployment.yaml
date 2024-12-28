@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: tutorial-app-ui
+  labels:
+    app: tutorial-app-ui
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: tutorial-app-ui
+  template:
+    metadata:
+      labels:
+        app: tutorial-app-ui
+    spec:
+      containers:
+        - name: my-container
+          image: prajwalpadal/tutorial-app-ui:v1.0
+          ports:
+            - containerPort: 80
